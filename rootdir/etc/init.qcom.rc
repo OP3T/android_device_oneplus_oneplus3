@@ -157,6 +157,10 @@ on boot
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"
 
+    # TODO Update touchscreen and keypad firmware
+    write /sys/bus/i2c/devices/12-0020/tp_fw_update 0
+    write /proc/s1302/fw_update 0
+
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
